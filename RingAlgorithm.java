@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Ring {
+public class RingAlgorithm {
 
     public static void election(int nodes, int initiator, int[] isActive) {
         int[] arr = new int[nodes];

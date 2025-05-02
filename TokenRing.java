@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class TokenRing {
     public static void main(String[] args) {
 
 
