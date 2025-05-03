@@ -39,7 +39,7 @@
 Terminal 1:
 
     javac *.java
-    rmic AddServerImpl
+    rmic AdditionServerImplemnetation
 
 Terminal 2:
 
@@ -47,11 +47,11 @@ Terminal 2:
 
 Terminal 3:
 
-    java AddServer
+    java AdditionServer
 
 Terminal 4:
 
-    java AddClient 127.0.0.1 5 8
+    java AdditionServiceClient 127.0.0.1 5 8
 
 ### Assignment 2:
 
