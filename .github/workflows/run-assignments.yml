@@ -40,34 +40,23 @@ jobs:
     - name: Run Client and Check Result (Assignment 1)
       run: |
         cd Assignment_1
-        echo "5 8" | java AdditionServiceClient
+        java AdditionServiceClient 5 8
         echo "Expected output: 13"
+        cd ..
       continue-on-error: false # Fail the workflow if the client process fails
 
     # Assignment 2 - String Reverse Steps
     - name: Generate IDL Files (Assignment 2 - String Reverse)
       run: |
-        cd Assignment_2
+        cd Assignment_2/StringReverse
         idlj -fall Reverse.idl
-
-    - name: Compile Java files (Assignment 2 - String Reverse)
-      run: |
-        cd Assignment_2
         javac *.java ReverseModule/*.java
-
-    - name: Start ORBD Service (Assignment 2 - String Reverse)
-      run: |
-        cd Assignment_2
         nohup orbd -ORBInitialPort 1056 &
-
-    - name: Start CORBA Server (Assignment 2 - String Reverse)
-      run: |
-        cd Assignment_2
         nohup java Server -ORBInitialPort 1056 &
 
     - name: Run CORBA Client and Provide Input (Assignment 2 - String Reverse)
       run: |
-        cd Assignment_2
+        cd Assignment_2/StringReverse
         echo "Hello World" | java ReverseClient -ORBInitialPort 1056
         echo "Expected output: dlroW olleH"
       continue-on-error: false # Fail the workflow if the client process fails
@@ -75,27 +64,15 @@ jobs:
     # Assignment 2 - Calculator Steps
     - name: Generate IDL Files (Assignment 2 - Calculator)
       run: |
-        cd Assignment_2
+        cd Assignment_2/Calculator
         idlj -fall Calculator.idl
-
-    - name: Compile Java files (Assignment 2 - Calculator)
-      run: |
-        cd Assignment_2
         javac *.java CalculatorModule/*.java
-
-    - name: Start ORBD Service (Assignment 2 - Calculator)
-      run: |
-        cd Assignment_2
         nohup orbd -ORBInitialPort 1056 &
-
-    - name: Start CORBA Server (Assignment 2 - Calculator)
-      run: |
-        cd Assignment_2
         nohup java Server -ORBInitialPort 1056 &
 
     - name: Run CORBA Client and Provide Input (Assignment 2 - Calculator)
       run: |
-        cd Assignment_2
+        cd Assignment_2/Calculator
         echo "5 3" | java CalculatorClient -ORBInitialPort 1056
         echo "Expected output: 8 2 15 Something"
       continue-on-error: false # Fail the workflow if the client process fails
