@@ -55,16 +55,32 @@ Terminal 4:
 
 ### Assignment 2:
 
+For String Reverse Assignment :
+
 Terminal 1:
 
     idlj -fall Reverse.idl
     javac *.java ReverseModule/*.java
     orbd -ORBInitialPort 1056&
-    java ReverseServer -ORBInitialPort 1056& 
+    java Server -ORBInitialPort 1056& 
 
 Terminal 2:
 
     java ReverseClient -ORBInitialPort 1056
+
+For Calculator Assignment :
+
+Terminal 1:
+
+    idlj -fall Reverse.idl
+    javac *.java ReverseModule/*.java
+    orbd -ORBInitialPort 1056&
+    java Server -ORBInitialPort 1056& 
+
+Terminal 2:
+
+    java CalculatorClient -ORBInitialPort 1056
+
 
 Situational:
     
@@ -95,30 +111,20 @@ Terminal 2:
 
 Terminal
 
-    javac Tring.java
-    java Tring
+    javac TokenRing.java
+    java TokenRing
 
 ### Assignmnet 6:
 
 Terminal
 
-    javac Bully.java
-    java Bully
-    javac Ring.java
-    java Ring
+    javac BullyAlgorithm.java
+    java BullyAlgorithm
+    javac RingAlgorithm.java
+    java RingAlgorithm
 
 ### Assignment 7:
 
 [Youtube tutorial](https://www.youtube.com/watch?v=0z-HvSfr-M4)
-
-### Extra:
-
-Terminal 1:
-
-    javac *.java
-    java Server
-Reminal 2:
-
-    java Client
     
     
