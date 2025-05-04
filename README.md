@@ -11,8 +11,6 @@
 | [Assignment 5](Assignment_5) | Implement token ring based mutual exclusion algorithm.|
 | [Assignment 6](Assignment_6) | Implement Bully and Ring algorithm for leader election.|
 | [Assignment 7](Assignment_7) | Create a simple web service and write distributed application(calculator) to consume the Web Service.|
-|    [Extra](Sockets)     | Develop any distributed application for implementing client-server communication programs based on Java Sockets.|
-
 ## Execution Steps
 
 ### Pre-requisites:
@@ -30,8 +28,6 @@
         sudo apt update && sudo apt upgrade
         sudo snap install netbeans --classic
    Glassfish server version must be 4.1.1
-
-
 
 
 ### Assignment 1:
@@ -115,7 +111,7 @@ Terminal
     javac TokenRing.java
     java TokenRing
 
-### Assignmnet 6:
+### Assignment 6:
 
 Terminal
 
