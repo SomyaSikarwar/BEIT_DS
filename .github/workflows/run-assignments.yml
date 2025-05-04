@@ -91,8 +91,8 @@ jobs:
         echo "5 3" | java CalculatorClient -ORBInitialPort 1056
         echo "Expected output: 8 2 15 1.6666666"
       continue-on-error: false # Fail the workflow if the client process fails
-
-    # Assignment 3 - Distributed Array Sum Steps
+      
+        # Assignment 3 - Distributed Array Sum Steps
     - name: Download and Setup MPJ Express
       run: |
         mkdir -p ~/Downloads
@@ -102,21 +102,26 @@ jobs:
         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
         source ~/.bash_profile
         # Verify MPJ setup
-        ls ~/Downloads/mpj-v0_44/lib/mpj.jar
-        ls ~/Downloads/mpj-v0_44/bin
+        if [ ! -f "$MPJ_HOME/lib/mpj.jar" ]; then
+          echo "Error: mpj.jar not found in $MPJ_HOME/lib"
+          exit 1
+        fi
+        if [ ! -f "$MPJ_HOME/bin/mpjrun.sh" ]; then
+          echo "Error: mpjrun.sh not found in $MPJ_HOME/bin"
+          exit 1
+        fi
 
     - name: Compile DistributedArraySum Program (Assignment 3)
       run: |
         cd Assignment_3
         javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
-      continue-on-error: true 
 
     - name: Run DistributedArraySum Program (Assignment 3)
       run: |
         cd Assignment_3
         $MPJ_HOME/bin/mpjrun.sh -np 4 -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum
         echo "Expected output: Sum of array distributed across processors"
-      continue-on-error: true # Fail the workflow if the client process fails
+      continue-on-error: false # Fail the workflow if the client process fails
 
     # Assignment 5 - Token Ring Steps
     - name: Compile TokenRing Program (Assignment 5 - Token Ring)
