@@ -1,5 +1,3 @@
-package Assignment_5;
-
 import java.util.*;
 
 public class TokenRing {

@@ -15,7 +15,7 @@ public class Server {
 
             System.out.println("Step 1");
             CalculatorModule.Calculator href = CalculatorModule.CalculatorHelper.narrow(ref);
-            System.out.println("Created a reference to the Reverse object.");
+            System.out.println("Created a reference to the Calculator object.");
 
             System.out.println("Step 2");
             Object objRef = orb.resolve_initial_references("NameService");
