@@ -1,4 +1,4 @@
-name: Run Assignments 1 and 2
+name: Run Assignments
 
 on:
   push:
@@ -91,5 +91,5 @@ jobs:
       run: |
         cd Assignment_2/Calculator
         echo "5 3" | java CalculatorClient -ORBInitialPort 1056
-        echo "Expected output: 8 2 15 Something"
+        echo "Expected output: 8 2 15 1.6666666"
       continue-on-error: false # Fail the workflow if the client process fails
