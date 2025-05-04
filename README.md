@@ -83,8 +83,8 @@ Terminal 2:
 
 
 Situational:
-    
     If you keep on getting, address already in use, then kill the process using the following command:
+    
     killall -9 orbd
 
 ### Assignment 3:
