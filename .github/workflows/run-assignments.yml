@@ -54,7 +54,6 @@ jobs:
         nohup orbd -ORBInitialPort 1057 & # Use a unique port for ORBD
         sleep 5
         nohup java Server -ORBInitialPort 1057 & # Start Server on the same port
-        sleep 5
 
     - name: Run CORBA Client and Provide Input (Assignment 2 - String Reverse)
       run: |
@@ -85,7 +84,6 @@ jobs:
         nohup orbd -ORBInitialPort 1056 &
         sleep 5
         nohup java Server -ORBInitialPort 1056 &
-        sleep 5
 
     - name: Run CORBA Client and Provide Input (Assignment 2 - Calculator)
       run: |
@@ -103,6 +101,9 @@ jobs:
         echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
         source ~/.bash_profile
+        echo $MPJ_HOME
+        echo $PATH
+        
 
     - name: Compile DistributedArraySum Program (Assignment 3)
       run: |
