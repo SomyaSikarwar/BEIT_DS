@@ -1,4 +1,3 @@
-package Assignment_1;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
