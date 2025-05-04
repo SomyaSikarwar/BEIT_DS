@@ -39,5 +39,6 @@ jobs:
     - name: Run Client and Check Result
       run: |
         cd Assignment_1
-        java AdditionServiceClient 127.0.0.1 5 8
+        java AdditionServiceClient 5 8
+        echo "Expected output : 13"
       continue-on-error: false # Fail the workflow if the client process fails
