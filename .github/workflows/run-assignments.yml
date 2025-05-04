@@ -103,6 +103,31 @@ jobs:
     - name: Run TokenRing Program
       run: |
         cd Assignment_5
-        echo -e "3\nHello\n1\n3\n0\n" | java TokenRing
+        echo -e "7\nHello\n1\n6\n0\n" | java TokenRing
         echo "Expected output: Simulates token ring message passing"
+      continue-on-error: false # Fail the workflow if the client process fails
+        # Assignment 6 - Bully Algorithm Steps
+    - name: Compile BullyAlgorithm Program
+      run: |
+        cd Assignment_6
+        javac BullyAlgorithm.java
+
+    - name: Run BullyAlgorithm Program
+      run: |
+        cd Assignment_6
+        echo -e "7\n7\n1\n" | java BullyAlgorithm
+        echo "Expected output: Simulates the bully election algorithm"
+      continue-on-error: false # Fail the workflow if the client process fails
+
+    # Assignment 6 - Ring Algorithm Steps
+    - name: Compile RingAlgorithm Program
+      run: |
+        cd Assignment_6
+        javac RingAlgorithm.java
+
+    - name: Run RingAlgorithm Program
+      run: |
+        cd Assignment_6
+        echo -e "7\n1\n" | java RingAlgorithm
+        echo "Expected output: Simulates the ring election algorithm"
       continue-on-error: false # Fail the workflow if the client process fails
