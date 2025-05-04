@@ -57,14 +57,19 @@ Terminal 4:
 
 Terminal 1:
 
-    idlj -fall ReverseModule.idl
+    idlj -fall Reverse.idl
     javac *.java ReverseModule/*.java
     orbd -ORBInitialPort 1056&
     java ReverseServer -ORBInitialPort 1056& 
 
 Terminal 2:
 
-    java ReverseClient -ORBInitialPort 1056 -ORBInitialHost localhost
+    java ReverseClient -ORBInitialPort 1056
+
+Situational:
+    
+    If you keep on getting, address already in use, then kill the process using the following command:
+    killall -9 orbd
 
 ### Assignment 3:
 
