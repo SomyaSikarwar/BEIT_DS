@@ -39,7 +39,7 @@
 Terminal 1:
 
     javac *.java
-    rmic AddServerImpl
+    rmic AdditionServerImplemnetation
 
 Terminal 2:
 
@@ -47,24 +47,29 @@ Terminal 2:
 
 Terminal 3:
 
-    java AddServer
+    java AdditionServer
 
 Terminal 4:
 
-    java AddClient 127.0.0.1 5 8
+    java AdditionServiceClient 127.0.0.1 5 8
 
 ### Assignment 2:
 
 Terminal 1:
 
-    idlj -fall ReverseModule.idl
+    idlj -fall Reverse.idl
     javac *.java ReverseModule/*.java
     orbd -ORBInitialPort 1056&
     java ReverseServer -ORBInitialPort 1056& 
 
 Terminal 2:
 
-    java ReverseClient -ORBInitialPort 1056 -ORBInitialHost localhost
+    java ReverseClient -ORBInitialPort 1056
+
+Situational:
+    
+    If you keep on getting, address already in use, then kill the process using the following command:
+    killall -9 orbd
 
 ### Assignment 3:
 
