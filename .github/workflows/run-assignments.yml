@@ -93,3 +93,16 @@ jobs:
         echo "5 3" | java CalculatorClient -ORBInitialPort 1056
         echo "Expected output: 8 2 15 1.6666666"
       continue-on-error: false # Fail the workflow if the client process fails
+
+    # Assignment 5 - Token Ring Steps
+    - name: Compile TokenRing Program
+      run: |
+        cd Assignment_5
+        javac TokenRing.java
+
+    - name: Run TokenRing Program
+      run: |
+        cd Assignment_5
+        echo -e "3\nHello\n1\n3\n0\n" | java TokenRing
+        echo "Expected output: Simulates token ring message passing"
+      continue-on-error: false # Fail the workflow if the client process fails
