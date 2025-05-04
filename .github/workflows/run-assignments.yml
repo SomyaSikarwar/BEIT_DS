@@ -52,9 +52,7 @@ jobs:
         idlj -fall Reverse.idl
         javac *.java ReverseModule/*.java
         nohup orbd -ORBInitialPort 1057 & # Use a unique port for ORBD
-        sleep 10 # Wait for ORBD to fully initialize
         nohup java Server -ORBInitialPort 1057 & # Start Server on the same port
-        sleep 10 # Wait for Server to fully initialize
 
     - name: Run CORBA Client and Provide Input (Assignment 2 - String Reverse)
       run: |
