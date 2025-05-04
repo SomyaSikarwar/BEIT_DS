@@ -51,20 +51,22 @@ jobs:
         cd Assignment_2/StringReverse
         idlj -fall Reverse.idl
         javac *.java ReverseModule/*.java
-        nohup orbd -ORBInitialPort 1056 &
-        nohup java Server -ORBInitialPort 1056 &
+        nohup orbd -ORBInitialPort 1057 & # Use a unique port for ORBD
+        sleep 10 # Wait for ORBD to fully initialize
+        nohup java Server -ORBInitialPort 1057 & # Start Server on the same port
+        sleep 10 # Wait for Server to fully initialize
 
     - name: Run CORBA Client and Provide Input (Assignment 2 - String Reverse)
       run: |
         cd Assignment_2/StringReverse
-        max_attempts=2
+        max_attempts=3
         attempt=1
         until [ $attempt -gt $max_attempts ]; do
           echo "Attempt $attempt to run ReverseClient..."
-          echo "Hello World" | java ReverseClient -ORBInitialPort 1056 && break
+          echo "Hello World" | java ReverseClient -ORBInitialPort 1057 && break
           echo "ReverseClient failed on attempt $attempt. Retrying..."
           attempt=$((attempt + 1))
-          sleep 2 # Optional: Wait for 2 seconds before retrying
+          sleep 1 # Wait before retrying
         done
         if [ $attempt -gt $max_attempts ]; then
           echo "ReverseClient failed after $max_attempts attempts."
