@@ -24,7 +24,7 @@ jobs:
       run: |
         cd Assignment_1
         javac *.java
-        rmic AdditionServiceImplemnetation
+        rmic AdditionServiceImplementation
 
     - name: Start RMI Registry
       run: |
