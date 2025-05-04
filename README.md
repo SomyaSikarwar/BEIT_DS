@@ -72,8 +72,8 @@ For Calculator Assignment :
 
 Terminal 1:
 
-    idlj -fall Reverse.idl
-    javac *.java ReverseModule/*.java
+    idlj -fall Calculator.idl
+    javac *.java CalculatorModule/*.java
     orbd -ORBInitialPort 1056&
     java Server -ORBInitialPort 1056& 
 
