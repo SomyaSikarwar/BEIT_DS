@@ -107,12 +107,12 @@ jobs:
         echo "Expected output: Simulates token ring message passing"
       continue-on-error: false # Fail the workflow if the client process fails
         # Assignment 6 - Bully Algorithm Steps
-    - name: Compile BullyAlgorithm Program (Assignment 5 - Bully Algorithm)
+    - name: Compile BullyAlgorithm Program (Assignment 6 - Bully Algorithm)
       run: |
         cd Assignment_6
         javac BullyAlgorithm.java
 
-    - name: Run BullyAlgorithm Program (Assignment 5 - Bully Algorithm)
+    - name: Run BullyAlgorithm Program (Assignment 6 - Bully Algorithm)
       run: |
         cd Assignment_6
         echo -e "7\n7\n1\n" | java BullyAlgorithm
@@ -120,12 +120,12 @@ jobs:
       continue-on-error: false # Fail the workflow if the client process fails
 
     # Assignment 6 - Ring Algorithm Steps
-    - name: Compile RingAlgorithm Program (Assignment 5 - Ring Algorithm)
+    - name: Compile RingAlgorithm Program (Assignment 6 - Ring Algorithm)
       run: |
         cd Assignment_6
         javac RingAlgorithm.java
 
-    - name: Run RingAlgorithm Program (Assignment 5 - Ring Algorithm)
+    - name: Run RingAlgorithm Program (Assignment 6 - Ring Algorithm)
       run: |
         cd Assignment_6
         echo -e "7\n1\n" | java RingAlgorithm
