@@ -1,4 +1,3 @@
-package Assignment_1;
 import java.rmi.Naming;
 
 public class AdditionServiceClient {
