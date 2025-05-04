@@ -11,8 +11,6 @@
 | [Assignment 5](Assignment_5) | Implement token ring based mutual exclusion algorithm.|
 | [Assignment 6](Assignment_6) | Implement Bully and Ring algorithm for leader election.|
 | [Assignment 7](Assignment_7) | Create a simple web service and write distributed application(calculator) to consume the Web Service.|
-|    [Extra](Sockets)     | Develop any distributed application for implementing client-server communication programs based on Java Sockets.|
-
 ## Execution Steps
 
 ### Pre-requisites:
@@ -30,8 +28,6 @@
         sudo apt update && sudo apt upgrade
         sudo snap install netbeans --classic
    Glassfish server version must be 4.1.1
-
-
 
 
 ### Assignment 1:
@@ -55,28 +51,45 @@ Terminal 4:
 
 ### Assignment 2:
 
+For String Reverse Assignment :
+
 Terminal 1:
 
     idlj -fall Reverse.idl
     javac *.java ReverseModule/*.java
     orbd -ORBInitialPort 1056&
-    java ReverseServer -ORBInitialPort 1056& 
+    java Server -ORBInitialPort 1056& 
 
 Terminal 2:
 
     java ReverseClient -ORBInitialPort 1056
 
+For Calculator Assignment :
+
+Terminal 1:
+
+    idlj -fall Calculator.idl
+    javac *.java CalculatorModule/*.java
+    orbd -ORBInitialPort 1056&
+    java Server -ORBInitialPort 1056& 
+
+Terminal 2:
+
+    java CalculatorClient -ORBInitialPort 1056
+
+
 Situational:
-    
     If you keep on getting, address already in use, then kill the process using the following command:
+    
     killall -9 orbd
 
 ### Assignment 3:
 
 Terminal:
 
-    export MPJ_HOME=/home/ubuntu/Downloads/mpj-v0_44
-    export PATH=$MPJ_HOME/bin:$PATH
+    echo 'MPJ_HOME=/home/ubuntu/Downloads/mpj-v0_44' >> ~/.bash_profile
+    echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
+    source ~/.bash_profile
     javac -cp $MPJ_HOME/lib/mpj.jar ArrSum.java
     $MPJ_HOME/bin/mpjrun.sh -np 4 ArrSum
 
@@ -95,30 +108,20 @@ Terminal 2:
 
 Terminal
 
-    javac Tring.java
-    java Tring
+    javac TokenRing.java
+    java TokenRing
 
-### Assignmnet 6:
+### Assignment 6:
 
 Terminal
 
-    javac Bully.java
-    java Bully
-    javac Ring.java
-    java Ring
+    javac BullyAlgorithm.java
+    java BullyAlgorithm
+    javac RingAlgorithm.java
+    java RingAlgorithm
 
 ### Assignment 7:
 
 [Youtube tutorial](https://www.youtube.com/watch?v=0z-HvSfr-M4)
-
-### Extra:
-
-Terminal 1:
-
-    javac *.java
-    java Server
-Reminal 2:
-
-    java Client
     
     
