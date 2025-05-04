@@ -64,7 +64,7 @@ Terminal 1:
 
 Terminal 2:
 
-    java ReverseClient -ORBInitialPort 1056 -ORBInitialHost localhost
+    java ReverseClient -ORBInitialPort 1056
 
 Situational:
     
