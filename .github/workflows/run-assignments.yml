@@ -73,6 +73,7 @@ jobs:
           exit 1
         fi
         echo "Expected output: dlroW olleH"
+        killall -9 orbd
       continue-on-error: true # Fail the workflow if the client process fails
       
     # Assignment 2 - Calculator Steps
