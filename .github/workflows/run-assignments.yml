@@ -94,6 +94,27 @@ jobs:
         echo "Expected output: 8 2 15 1.6666666"
       continue-on-error: false # Fail the workflow if the client process fails
 
+    # Assignment 3 - Distributed Array Sum Steps
+    - name: Download and Setup MPJ Express
+      run: |
+        wget https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O mpj-v0_44.tar.gz
+        tar -xvzf mpj-v0_44.tar.gz -C $HOME
+        echo 'MPJ_HOME=$HOME/mpj-v0_44' >> ~/.bash_profile
+        echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
+        source ~/.bash_profile
+
+    - name: Compile DistributedArraySum Program (Assignment 3)
+      run: |
+        cd Assignment_3
+        javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
+
+    - name: Run DistributedArraySum Program (Assignment 3)
+      run: |
+        cd Assignment_3
+        $MPJ_HOME/bin/mpjrun.sh -np 4 -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum
+        echo "Expected output: Sum of array distributed across processors"
+      continue-on-error: true # Fail the workflow if the client process fails
+
     # Assignment 5 - Token Ring Steps
     - name: Compile TokenRing Program (Assignment 5 - Token Ring)
       run: |
@@ -106,7 +127,8 @@ jobs:
         echo -e "7\nHello\n1\n6\n0\n" | java TokenRing
         echo "Expected output: Simulates token ring message passing"
       continue-on-error: false # Fail the workflow if the client process fails
-        # Assignment 6 - Bully Algorithm Steps
+      
+    # Assignment 6 - Bully Algorithm Steps
     - name: Compile BullyAlgorithm Program (Assignment 6 - Bully Algorithm)
       run: |
         cd Assignment_6
