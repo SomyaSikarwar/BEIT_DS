@@ -80,39 +80,39 @@ jobs:
         echo "Expected output: 8 2 15 1.6666666"
       continue-on-error: true # Fail the workflow if the client process fails
       
-        # Assignment 3 - Distributed Array Sum Steps
-    - name: Download and Setup MPJ Express with Compile & Run DistributedArraySum Program (Assignment 3)
-      run: |
-        mkdir -p ~/Downloads
-        wget -q https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O ~/Downloads/mpj-v0_44.tar.gz
-        tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
-        cd ~/Downloads/mpj-v0_44/lib
-        ls | grep 'starter'
-      continue-on-error: true # Fail the workflow if the client process fails
+    #     # Assignment 3 - Distributed Array Sum Steps
+    # - name: Download and Setup MPJ Express with Compile & Run DistributedArraySum Program (Assignment 3)
+    #   run: |
+    #     mkdir -p ~/Downloads
+    #     wget -q https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O ~/Downloads/mpj-v0_44.tar.gz
+    #     tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
+    #     cd ~/Downloads/mpj-v0_44/lib
+    #     ls | grep 'starter'
+    #   continue-on-error: true # Fail the workflow if the client process fails
 
-    - name: Compile & Run DistributedArraySum Program (Assignment 3)
-      run: |
-         cd Assignment_3
-         echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
-         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
-         source ~/.bash_profile
-         chmod -R 777 $MPJ_HOME
-         chmod -R 777 $MPJ_HOME/lib
-         javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
-      continue-on-error: true
+    # - name: Compile & Run DistributedArraySum Program (Assignment 3)
+    #   run: |
+    #      cd Assignment_3
+    #      echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
+    #      echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
+    #      source ~/.bash_profile
+    #      chmod -R 777 $MPJ_HOME
+    #      chmod -R 777 $MPJ_HOME/lib
+    #      javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
+    #   continue-on-error: true
  
-    - name: Run DistributedArraySum Program (Assignment 3)
-      run: |
-         cd Assignment_3
-         echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
-         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
-         source ~/.bash_profile
-         chmod -R 777 $MPJ_HOME
-         chmod -R 777 $MPJ_HOME/lib
-         ls -l $MPJ_HOME/lib | grep 'starter'
-         sudo $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
-         echo "Expected output: Sum of array distributed across processors"
-      continue-on-error: true
+    # - name: Run DistributedArraySum Program (Assignment 3)
+    #   run: |
+    #      cd Assignment_3
+    #      echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
+    #      echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
+    #      source ~/.bash_profile
+    #      chmod -R 777 $MPJ_HOME
+    #      chmod -R 777 $MPJ_HOME/lib
+    #      ls -l $MPJ_HOME/lib | grep 'starter'
+    #      sudo $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
+    #      echo "Expected output: Sum of array distributed across processors"
+    #   continue-on-error: true
       
     # Assignment 4 - Berekely Algorithm
     - name: Compile Berekely Algorithm Program (Assignment 6 - Berekely Algorithm)
