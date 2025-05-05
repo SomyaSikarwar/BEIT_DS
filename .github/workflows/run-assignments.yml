@@ -107,7 +107,7 @@ jobs:
          echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
          echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
          source ~/.bash_profile
-         chmod -R 755 $MPJ_HOME
+         chmod -R 777 $MPJ_HOME
          javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
       continue-on-error: true
  
@@ -117,7 +117,7 @@ jobs:
          echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
          echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
          source ~/.bash_profile
-         chmod -R 755 $MPJ_HOME
+         chmod -R 777 $MPJ_HOME
          ls $MPJ_HOME/lib | grep 'starter'
          $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
          echo "Expected output: Sum of array distributed across processors"
