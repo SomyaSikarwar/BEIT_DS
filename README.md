@@ -97,12 +97,14 @@ Terminal:
 
 Terminal 1:
 
-    python client.py
-
+    javac *.java
+    java MasterNode 3s
 
 Terminal 2:
 
-    python server.py
+    java SlaveNode 25 &
+    java SlaveNode 12 &
+    java SlaveNode -10
 
 ### Assignment 5:
 
