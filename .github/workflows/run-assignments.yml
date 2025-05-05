@@ -121,7 +121,7 @@ jobs:
          chmod -R 777 $MPJ_HOME
          chmod -R 777 $MPJ_HOME/lib
          ls -l $MPJ_HOME/lib | grep 'starter'
-         $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
+         sudo $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
          echo "Expected output: Sum of array distributed across processors"
          continue-on-error: true
 
