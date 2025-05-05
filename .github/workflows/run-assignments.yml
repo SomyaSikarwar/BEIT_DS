@@ -115,12 +115,12 @@ jobs:
     #   continue-on-error: true
       
     # Assignment 4 - Berekely Algorithm
-    - name: Compile Berekely Algorithm Program (Assignment 6 - Berekely Algorithm)
+    - name: Compile Berekely Algorithm Program (Assignment 4 - Berekely Algorithm)
       run: |
         cd Assignment_4
         javac *.java
 
-    - name: Run Berekely Algorithm Program (Assignment 6 - Berekely Algorithm)
+    - name: Run Berekely Algorithm Program (Assignment 4 - Berekely Algorithm)
       run: |
         cd Assignment_4
         java MasterNode 3 &
