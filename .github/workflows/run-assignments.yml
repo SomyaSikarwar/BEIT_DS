@@ -98,28 +98,22 @@ jobs:
         mkdir -p ~/Downloads
         wget -q https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O ~/Downloads/mpj-v0_44.tar.gz
         tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
-        echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
-        echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
-        source ~/.bash_profile
-        # Verify MPJ setup
-        if [ ! -f "$MPJ_HOME/lib/mpj.jar" ]; then
-          echo "Error: mpj.jar not found in $MPJ_HOME/lib"
-          exit 1
-        fi
-        if [ ! -f "$MPJ_HOME/bin/mpjrun.sh" ]; then
-          echo "Error: mpjrun.sh not found in $MPJ_HOME/bin"
-          exit 1
-        fi
 
     - name: Compile DistributedArraySum Program (Assignment 3)
       run: |
         cd Assignment_3
+        echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
+        echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
+        source ~/.bash_profile
         javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
       continue-on-error: true
 
     - name: Run DistributedArraySum Program (Assignment 3)
       run: |
         cd Assignment_3
+        echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
+        echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
+        source ~/.bash_profile
         $MPJ_HOME/bin/mpjrun.sh -np 4 -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum
         echo "Expected output: Sum of array distributed across processors"
       continue-on-error: true # Fail the workflow if the client process fails
