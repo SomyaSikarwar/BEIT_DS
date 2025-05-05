@@ -100,6 +100,7 @@ jobs:
         tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
         cd ~/Downloads/mpj-v0_44/lib
         ls | grep 'starter'
+        cd ~/Assignment_3/
         javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
         $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
         echo "Expected output: Sum of array distributed across processors"
