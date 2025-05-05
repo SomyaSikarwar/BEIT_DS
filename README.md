@@ -47,7 +47,7 @@ Terminal 3:
 
 Terminal 4:
 
-    java AdditionServiceClient 127.0.0.1 5 8
+    java AdditionServiceClient 5 8
 
 ### Assignment 2:
 
