@@ -58,19 +58,8 @@ jobs:
     - name: Run CORBA Client and Provide Input (Assignment 2 - String Reverse)
       run: |
         cd Assignment_2/StringReverse
-        max_attempts=3
-        attempt=1
-        until [ $attempt -gt $max_attempts ]; do
-          echo "Attempt $attempt to run ReverseClient..."
-          echo "Hello World" | java ReverseClient -ORBInitialPort 1057 && break
-          echo "ReverseClient failed on attempt $attempt. Retrying..."
-          attempt=$((attempt + 1))
-          sleep 1 # Wait before retrying
-        done
-        if [ $attempt -gt $max_attempts ]; then
-          echo "ReverseClient failed after $max_attempts attempts."
-          exit 1
-        fi
+        echo "Hello World" | java ReverseClient -ORBInitialPort 1057 && break
+        echo "ReverseClient failed on attempt $attempt. Retrying..."        
         echo "Expected output: dlroW olleH"
         killall -9 orbd
       continue-on-error: true # Fail the workflow if the client process fails
