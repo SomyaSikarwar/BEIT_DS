@@ -118,7 +118,7 @@ jobs:
         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
         source ~/.bash_profile
         chmod -R 755 $MPJ_HOME
-        $MPJ_HOME/bin/mpjrun.sh -np 4 -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum
+        $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
         echo "Expected output: Sum of array distributed across processors"
       continue-on-error: true # Fail the workflow if the client process fails
 
