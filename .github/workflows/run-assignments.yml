@@ -98,6 +98,8 @@ jobs:
         mkdir -p ~/Downloads
         wget -q https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O ~/Downloads/mpj-v0_44.tar.gz
         tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
+        cd ~/Downloads/mpj-v0_44/lib
+        ls | grep 'starter'
 
     - name: Compile DistributedArraySum Program (Assignment 3)
       run: |
