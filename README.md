@@ -87,7 +87,7 @@ Situational:
 
 Terminal:
 
-    echo 'MPJ_HOME=/home/ubuntu/Downloads/mpj-v0_44' >> ~/.bash_profile
+    echo 'export MPJ_HOME=/home/ubuntu/Downloads/mpj-v0_44' >> ~/.bash_profile
     echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
     source ~/.bash_profile
     javac -cp $MPJ_HOME/lib/mpj.jar ArrSum.java
