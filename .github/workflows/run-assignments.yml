@@ -97,6 +97,7 @@ jobs:
       run: |
         mkdir -p ~/Downloads
         wget -q https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O ~/Downloads/mpj-v0_44.tar.gz
+        chmod -R 755 $MPJ_HOME
         tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
 
     - name: Compile DistributedArraySum Program (Assignment 3)
@@ -105,6 +106,7 @@ jobs:
         echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
         source ~/.bash_profile
+        chmod -R 755 $MPJ_HOME
         javac -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum.java
       continue-on-error: true
 
@@ -114,6 +116,7 @@ jobs:
         echo 'MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
         source ~/.bash_profile
+        chmod -R 755 $MPJ_HOME
         $MPJ_HOME/bin/mpjrun.sh -np 4 -cp $MPJ_HOME/lib/mpj.jar DistributedArraySum
         echo "Expected output: Sum of array distributed across processors"
       continue-on-error: true # Fail the workflow if the client process fails
