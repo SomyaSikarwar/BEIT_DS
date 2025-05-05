@@ -97,7 +97,6 @@ jobs:
       run: |
         mkdir -p ~/Downloads
         wget -q https://sourceforge.net/projects/mpjexpress/files/releases/mpj-v0_44.tar.gz/download -O ~/Downloads/mpj-v0_44.tar.gz
-        chmod -R 755 $MPJ_HOME
         tar -xzf ~/Downloads/mpj-v0_44.tar.gz -C ~/Downloads
 
     - name: Compile DistributedArraySum Program (Assignment 3)
