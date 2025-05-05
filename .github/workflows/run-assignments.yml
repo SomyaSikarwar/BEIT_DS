@@ -113,7 +113,23 @@ jobs:
          sudo $MPJ_HOME/bin/mpjrun.sh -np 4 DistributedArraySum
          echo "Expected output: Sum of array distributed across processors"
       continue-on-error: true
+      
+    # Assignment 4 - Berekely Algorithm
+    - name: Compile Berekely Algorithm Program (Assignment 6 - Berekely Algorithm)
+      run: |
+        cd Assignment_4
+        javac *.java
 
+    - name: Run Berekely Algorithm Program (Assignment 6 - Berekely Algorithm)
+      run: |
+        cd Assignment_4
+        java MasterNode 3 &
+        java SlaveNode 25 &
+        java SlaveNode 12 &
+        java SlaveNode -10
+        echo "Expected output: [FINAL] Synchronized time at : ? "
+      continue-on-error: true # Fail the workflow if the client process fails
+      
     # Assignment 5 - Token Ring Steps
     - name: Compile TokenRing Program (Assignment 5 - Token Ring)
       run: |
@@ -152,3 +168,5 @@ jobs:
         echo -e "7\n1\n" | java RingAlgorithm
         echo "Expected output: Simulates the ring election algorithm"
       continue-on-error: false # Fail the workflow if the client process fails
+
+    
