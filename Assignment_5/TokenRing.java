@@ -1,8 +1,7 @@
 import java.util.*;
 
-public class TokenRing {
+public class Main {
     public static void main(String[] args) {
-
 
         Scanner sc = new Scanner(System.in);
 
@@ -18,7 +17,7 @@ public class TokenRing {
         int token = 1;
         sc.nextLine(); // Consume leftover newline
 
-        while(choice == 1) {
+        while (choice == 1) {
             System.out.println("\nEnter the message: ");
             String message = sc.nextLine();
 
@@ -29,15 +28,19 @@ public class TokenRing {
             int receiver = sc.nextInt();
 
             System.out.print("Token Passing: ");
-            for (int i = token; i != sender; i = (i % n) + 1) {
+            int i = token;
+            while (i != sender) {
                 System.out.print(i + " -> ");
+                i = (i % n) + 1;
             }
             System.out.println(sender);
 
             System.out.println("Sender " + sender + " sending message: " + message);
 
-            for (int i = sender + 1; i != receiver; i = (i % n) + 1) {
+            i = (sender % n) + 1;
+            while (i != receiver) {
                 System.out.println("Message forwarded by process " + i);
+                i = (i % n) + 1;
             }
 
             System.out.println("Receiver " + receiver + " received the message: " + message);
@@ -53,4 +56,3 @@ public class TokenRing {
         System.out.println("Program Ended.");
     }
 }
-
