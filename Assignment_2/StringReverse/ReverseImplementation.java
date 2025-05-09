@@ -1,12 +1,9 @@
 public class ReverseImplementation extends ReverseModule.ReversePOA {
-
-    ReverseImplementation() {
-        super();
-        System.out.println("ReverseImplementation object created.");
-    }
-
-    @Override
-    public String reverse(String input) {
-        return new StringBuilder(input).reverse().toString();
-    }
+  public ReverseImplementation() {
+    super();
+  }
+  
+  public String reverse(String str) {
+    return new StringBuilder(str).reverse().toString();
+  }
 }

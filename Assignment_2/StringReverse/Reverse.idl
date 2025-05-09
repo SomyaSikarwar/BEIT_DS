@@ -1,5 +1,5 @@
 module ReverseModule {
-interface Reverse {
-	string reverse(in string str);
-    };
+	interface Reverse {
+		string reverse(in string str);
+	};
 };

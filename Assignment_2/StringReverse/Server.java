@@ -4,38 +4,41 @@ import org.omg.CosNaming.*;
 import org.omg.PortableServer.*;
 
 public class Server {
-    public static void main(String[] args) {
-        try {
-            ORB orb = ORB.init(args, null);
-            POA rootPOA = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
-            rootPOA.the_POAManager().activate();
-
-            ReverseImplementation reverseService = new ReverseImplementation();
-            Object ref = rootPOA.servant_to_reference(reverseService);
-
-            System.out.println("Step 1");
-            ReverseModule.Reverse href = ReverseModule.ReverseHelper.narrow(ref);
-            System.out.println("Created a reference to the Reverse object.");
-
-            System.out.println("Step 2");
-            Object objRef = orb.resolve_initial_references("NameService");
-            System.out.println("Obtained a reference to the NameService.");
-
-            System.out.println("Step 3");
-            NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
-            System.out.println("Narrowed the reference to a NamingContextExt.");
-
-            System.out.println("Step 4");
-            String name = "Reverse";
-            NameComponent[] path = ncRef.to_name(name);
-            ncRef.rebind(path, href);
-            System.out.println("Reverse object is bound in the NameService with name: " + name);
-
-            System.out.println("Server is ready and waiting for client requests...");
-            orb.run();
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
+  public static void main(String[] args) {
+    try{
+      //ORB Initialization
+      ORB orb = ORB.init(args, null);
+      POA rootPOA = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
+      rootPOA.the_POAManager().activate();
+      
+      //Step 1 : Creation of service 
+      ReverseImplementation service = new ReverseImplementation();
+      
+      //Step 2 : Creation of Reference to Service
+      Object ref = rootPOA.servant_to_reference(service);
+      
+      //Step 3 : Narrow down the service reference 
+      ReverseModule.Reverse href = ReverseModule.ReverseHelper.narrow(ref);
+      
+      //Step 4 : Creation of naming service reference 
+      Object nref = orb.resolve_initial_references("NameService");
+      
+      //Step 5 : Narrow down the name service
+      NamingContextExt ncRef = NamingContextExtHelper.narrow(nref);
+      
+      //Step 6 : Build path between the service and naming service
+      String name = "Reverse";
+      NameComponent[] path = ncRef.to_name(name);
+      
+      
+      //Step 7 : Bind the path and service
+      ncRef.rebind(path, href);
+      
+      //Step 8 : Run the server
+      System.out.println("Server is up and Running...");
+      orb.run();
+      
+    } catch (Exception e) {}
+    
+  }
 }
