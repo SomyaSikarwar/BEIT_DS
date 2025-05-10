@@ -104,8 +104,6 @@ jobs:
     - name: Run DistributedArraySum Program (Assignment 3)
       run: |
          cd Assignment_3
-         echo 'export MPJ_HOME=~/Downloads/mpj-v0_44' >> ~/.bash_profile
-         echo 'export PATH=$MPJ_HOME/bin:$PATH' >> ~/.bash_profile
          source ~/.bash_profile
          chmod -R 777 $MPJ_HOME
          chmod -R 777 $MPJ_HOME/lib
